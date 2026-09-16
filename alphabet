@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    char ch = 'C';
+    for (int i = 1; i < n; i++) {
+        ch += 3;
+
+        if (ch > 'Z')
+            ch -= 26;
+    }
+    cout << ch;
+    return 0;
+}

@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int main() {
+    string s = "cadbzabcd";
+        vector<int> h(256, -1);
+    int i = 0;
+    int j = 0;
+    int maxLen = 0;
+    int maxStart = 0;
+    int n = s.length();
+    while (j < n) {
+        char ch = s[j]; 
+        if (h[ch] != -1) {
+            if (h[ch] >= i) {
+                i = h[ch] + 1;
+            }
+        }
+        int len = j - i + 1;
+        if (len > maxLen) {
+            maxLen = len;
+            maxStart = i;
+        }
+        h[ch] = j;
+        j++;
+    }
+    string longestSubstring = s.substr(maxStart, maxLen);
+    cout << "Longest substring length: " << maxLen << endl;
+    cout << "Longest substring characters: " << longestSubstring << endl;
+    return 0;
+}

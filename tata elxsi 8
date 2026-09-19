@@ -1,0 +1,27 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    
+    string b;
+    cin >> b;
+    
+    int steps = 0;
+    
+    for (int i = 0; i <= n - 3; ) {
+        // Check if substring starting at index i is "010"
+        if (b[i] == '0' && b[i+1] == '1' && b[i+2] == '0') {
+            steps++;
+            i += 3; // 3 steps munnadi skip pandrom (overlap prevent panna)
+        } else {
+            i++; // Next character-ku move aagrom
+        }
+    }
+    
+    cout << steps << endl;
+    
+    return 0;
+}

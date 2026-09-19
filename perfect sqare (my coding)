@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string s;
+    cin>>s;
+    int n=s.length();
+    long long min_value=(long long)pow(10,n-1);
+    long long max_value=(long long)pow(10,n)-1;
+
+    long long start=(long long)ceil(sqrt(min_value));
+    long long end=(long long)floor(sqrt(max_value));
+    
+    for(int i=start;i<=end;i++)
+        {
+            long long k=i*i;
+            string st=to_string(k);
+            if(st.length()!=n)
+            {
+                continue;
+            }
+            bool match=true;
+            for(int j=0;j<n;j++)
+                {
+                    if(s[j]!='_'&&s[j]!=st[j])
+                    {
+                        match=false;
+                        break;
+                    }
+                }
+            if(match)
+            {
+                cout << k<<endl;
+            }
+    }
+}

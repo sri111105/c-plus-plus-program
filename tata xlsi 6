@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+void printFactors(int num) {
+    cout << "Factors: ";
+    for (int i = 1; i <= num; i++) {
+        if (num % i == 0) {
+            cout << i << " ";
+        }
+    }
+    cout << endl;
+}
+int countDigits(int num) {
+    if (num == 0) return 1;
+    int count = 0;
+    if (num < 0) num = -num; 
+    while (num > 0) {
+        count++;
+        num /= 10;
+    }
+    return count;
+}
+int main() {
+    int num;
+    cin >> num;
+    printFactors(num);
+    int digits = countDigits(num);
+    cout << "Total digits = " << digits << endl;
+    return 0;
+}

@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+  bool ispalindrome(const string &s,int start,int end)
+{
+    while(start<end)
+        {
+            if(s[start]!=s[end])
+            {
+               return false; 
+            }
+            start++;
+            end--;
+        }
+    return true;
+}
+string getExtraCharacters(string s)
+{
+    int n=s.length();
+    for(int i=0;i<n;i++)
+        {
+            if(ispalindrome(s,i,n-1))
+            {
+                string str=s.substr(0,i);
+                reverse(str.begin(),str.end());
+                return str;
+            }
+        }
+      return "";
+}
+int main() {
+    string s;
+    if (cin >> s) {
+        cout << getExtraCharacters(s) << endl;
+    }
+    return 0;
+}

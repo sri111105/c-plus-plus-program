@@ -2,7 +2,6 @@
 #include <string>
 using namespace std;
 void countBorrows(long long number1, long long number2) {
-    // Step 1: Check if subtraction is possible
     if (number2 < number1) {
         cout << "Not possible" << endl;
         return;
@@ -10,19 +9,14 @@ void countBorrows(long long number1, long long number2) {
     int borrow_count = 0;
     int carry = 0;
     while (number2 > 0 || number1 > 0) {
-        // Extract the last digits
         int d2 = (number2 % 10) - carry;
         int d1 = number1 % 10;
-
-        // Check if we need to borrow
         if (d2 < d1) {
             borrow_count++;
-            carry = 1; // Borrowed 1 from the next column
+            carry = 1;
         } else {
-            carry = 0; // No borrow needed
+            carry = 0; 
         }
-
-        // Move to the next digit (remove the last digit)
         number1 /= 10;
         number2 /= 10;
     }

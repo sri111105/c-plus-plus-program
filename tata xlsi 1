@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+string moveHash(string s) 
+{
+    string hashsy="";
+    string non="";
+   for(int i=0;i<s.length();i++)
+       {
+           if(s[i]=='#')
+           {
+               hashsy+=s[i];
+           }
+       }
+    for(int i=0;i<s.length();i++)
+        {
+            if(s[i]!='#')
+            {
+             non+=s[i];
+            }
+        }
+    return hashsy+non;
+}
+int main() {
+    string s;
+    getline(cin, s);
+    cout << moveHash(s);
+}

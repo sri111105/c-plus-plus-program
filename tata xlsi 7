@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int rainfall[12];
+    int total = 0;
+
+    for (int i = 0; i < 12; i++) {
+        cin >> rainfall[i];
+                while (rainfall[i] < 0) {
+            cin >> rainfall[i];
+        }
+        
+        total += rainfall[i];
+    }
+    int minIndex = 0;
+    int maxIndex = 0;
+
+    for (int i = 1; i < 12; i++) {
+        if (rainfall[i] < rainfall[minIndex]) {
+            minIndex = i;
+        }
+        if (rainfall[i] > rainfall[maxIndex]) {
+            maxIndex = i;
+        }
+    }
+
+    int average = total / 12; // Output-la integer requirement irukku
+
+    // Output formatting matching question:
+    cout << total << endl;
+    cout << average << endl;
+    cout << (minIndex + 1) << endl; // 1-based month index
+    cout << (maxIndex + 1) << endl; // 1-based month index
+
+    return 0;
+}
